@@ -143,7 +143,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blocks-course/latest-posts","version":"0.1.0","title":"Latest Posts","category":"widgets","icon":"admin-post","description":"Display and filter latest posts.","keywords":["latest","posts"],"supports":{"html":false},"textdomain":"blocks-latest-posts","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"numberOfPosts":{"type":"number","default":5}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blocks-course/latest-posts","version":"0.1.0","title":"Latest Posts","category":"widgets","icon":"admin-post","description":"Display and filter latest posts.","keywords":["latest","posts"],"supports":{"html":false},"textdomain":"blocks-latest-posts","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"numberOfPosts":{"type":"number","default":5},"displayFeaturedImage":{"type":"boolean","default":true}}}');
 
 /***/ })
 

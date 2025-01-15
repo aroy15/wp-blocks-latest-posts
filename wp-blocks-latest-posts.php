@@ -19,8 +19,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function blocks_course_render_latest_posts_block( $attributes ) {
-	var_dump( $attributes );
-	return 'Dynamic Content';
+	$args = [
+		'posts_per_page' => $attributes[ 'numberOfPosts' ],
+		'post_status' => 'publish'
+	];
+	$recent_posts = get_posts($args);
+	
+	$posts = '<ul ' . get_block_wrapper_attributes() . '>';
+	foreach($recent_posts as $post) {
+		$title = get_the_title($post);
+		$permalink = get_permalink( $post );
+		$excerpt = get_the_excerpt( $post );
+
+		$posts .= '<li>';
+
+		if ( $attributes[ 'displayFeaturedImage' ] && has_post_thumbnail( $post )) {
+			$posts .= get_the_post_thumbnail( $post, 'large' );
+		}
+		$posts .= '<h5><a href="' . esc_url( $permalink ) . '">' . $title . '</a></h5>';
+
+		// first parameter is set to blank to get date format from the WordPress backend setttings.
+		$posts .= '<time datetime="' . esc_attr( get_the_date( 'c', $post ) ) . '">' . esc_html( get_the_date( '', $post ) ) . '</time>';
+
+		if ( !empty( $excerpt ) ) {
+			$posts .= '<p>' .  $excerpt . '</p>';
+		}
+
+		$posts .= '</li>';
+	}
+	$posts .= '</ul>';
+
+	return $posts;
 }
 
 function blocks_course_latest_posts_block_init() {

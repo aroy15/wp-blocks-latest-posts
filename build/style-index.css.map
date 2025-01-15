@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://latest-posts/./src/style.scss"],"sourcesContent":[".wp-block-blocks-course-latest-posts {\r\n\tborder: 1px dotted rgb(255, 0, 0);\r\n}\r\n"],"names":[],"sourceRoot":""}

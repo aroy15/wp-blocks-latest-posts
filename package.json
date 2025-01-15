@@ -1,8 +1,8 @@
 {
-	"name": "boilerplate",
+	"name": "latest-posts",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"description": "Display and filter latest posts.",
+	"author": "Anjon Roy",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {

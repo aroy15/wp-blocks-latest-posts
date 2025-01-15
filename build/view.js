@@ -1,1 +1,7 @@
-console.log("Hello World! (from create-block-boilerplate block)");
+/******/ (() => { // webpackBootstrap
+/*!*********************!*\
+  !*** ./src/view.js ***!
+  \*********************/
+
+/******/ })()
+;

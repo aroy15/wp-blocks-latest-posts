@@ -1,0 +1,1 @@
+{"version":3,"file":"view.js","mappings":";;;;AAAAA,OAAO,CAACC,GAAG,CAAE,oDAAqD,CAAC,C","sources":["webpack://latest-posts/./src/view.js"],"sourcesContent":["console.log( 'Hello World! (from create-block-boilerplate block)' );\n"],"names":["console","log"],"sourceRoot":""}

@@ -19,7 +19,7 @@ export default function Edit( { attributes } ) {
 	);
 
 	return (
-		<div { ...useBlockProps() }>
+		<ul { ...useBlockProps() }>
 			{ posts &&
 				posts.map( ( post ) => {
 					const featuredImage =
@@ -63,6 +63,6 @@ export default function Edit( { attributes } ) {
 						</li>
 					);
 				} ) }
-		</div>
+		</ul>
 	);
 }

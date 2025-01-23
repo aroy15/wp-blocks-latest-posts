@@ -46,14 +46,18 @@ function Edit({
 }) {
   const {
     numberOfPosts,
-    displayFeaturedImage
+    displayFeaturedImage,
+    order,
+    orderBy
   } = attributes;
   const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_7__.useSelect)(select => {
     return select('core').getEntityRecords('postType', 'post', {
       per_page: numberOfPosts,
-      _embed: true
+      _embed: true,
+      order,
+      orderby: orderBy
     });
-  }, [numberOfPosts]);
+  }, [numberOfPosts, order, orderBy]);
   const onDisplayFeaturedImageChange = value => {
     setAttributes({
       displayFeaturedImage: value
@@ -90,10 +94,10 @@ function Edit({
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Posts Settings', _block_json__WEBPACK_IMPORTED_MODULE_2__.metadata?.textdomain),
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Posts Settings', _block_json__WEBPACK_IMPORTED_MODULE_2__.textdomain),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToggleControl, {
           __nextHasNoMarginBottom: true,
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Display Featured Image', _block_json__WEBPACK_IMPORTED_MODULE_2__.metadata?.textdomain),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Display Featured Image', _block_json__WEBPACK_IMPORTED_MODULE_2__.textdomain),
           checked: displayFeaturedImage,
           onChange: onDisplayFeaturedImageChange
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.QueryControls, {
@@ -101,10 +105,14 @@ function Edit({
           onNumberOfItemsChange: onNumberOfItemsChange,
           maxItems: 9,
           minItems: 3,
-          orderBy: "date",
-          onOrderByChange: () => {},
-          order: "asc",
-          onOrderChange: () => {}
+          orderBy: orderBy,
+          onOrderByChange: newValue => setAttributes({
+            orderBy: newValue
+          }),
+          order: order,
+          onOrderChange: newValue => setAttributes({
+            order: newValue
+          })
         })]
       })
     })]
@@ -283,7 +291,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blocks-course/latest-posts","version":"0.1.0","title":"Latest Posts","category":"widgets","icon":"admin-post","description":"Display and filter latest posts.","keywords":["latest","posts"],"supports":{"html":false},"textdomain":"blocks-latest-posts","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"numberOfPosts":{"type":"number","default":5},"displayFeaturedImage":{"type":"boolean","default":true}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"blocks-course/latest-posts","version":"0.1.0","title":"Latest Posts","category":"widgets","icon":"admin-post","description":"Display and filter latest posts.","keywords":["latest","posts"],"supports":{"html":false},"textdomain":"blocks-latest-posts","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"numberOfPosts":{"type":"number","default":5},"displayFeaturedImage":{"type":"boolean","default":true},"order":{"type":"string","default":"desc"},"orderBy":{"type":"string","default":"date"}}}');
 
 /***/ })
 

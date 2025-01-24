@@ -23,8 +23,12 @@ function blocks_course_render_latest_posts_block( $attributes ) {
 		'posts_per_page' => $attributes[ 'numberOfPosts' ],
 		'post_status' => 'publish',
 		'order' => $attributes[ 'order' ],
-		'orderby' => $attributes[ 'orderBy' ]
+		'orderby' => $attributes[ 'orderBy' ],
+		'categories' => $attributes[ 'categories' ]
 	];
+	if( isset( $attributes['categories'] ) ) {
+		$args[ 'category__in' ] = array_column( $attributes[ 'categories' ], 'id' );
+	}
 	$recent_posts = get_posts($args);
 	
 	$posts = '<ul ' . get_block_wrapper_attributes() . '>';
